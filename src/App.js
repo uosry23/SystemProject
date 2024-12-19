@@ -1,13 +1,14 @@
-import React from 'react'
-import './index.css'
-import CardDesign from './CardDesign'
+import React from "react";
+import "./index.css";
+import CardDesign from "./CardDesign";
+import Profile from "./Profile";
+
 const App = () => {
   return (
     <div>
-      <CardDesign />
-
+      <Profile />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
