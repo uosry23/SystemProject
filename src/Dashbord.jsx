@@ -102,7 +102,7 @@ const Dashbord = () => {
                                     {pro.name}
                                 </span>
                             </td>
-                            <td data-label="Price" className='pricetd'>{pro._id}$</td>
+                            <td data-label="Price" className='pricetd'>{pro.price}$</td>
                             <td data-label="Operation" className='oprations'>
                                 <button className="btn view" onClick={() => view(pro)} >View</button>
                                 <button className="btn edit"  ><Link to={`/admin/edite/${pro._id}`} style={{ textDecoration: "none", color: "white" }}> Edite</Link></button>

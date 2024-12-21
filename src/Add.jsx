@@ -72,7 +72,7 @@ const Add = () => {
 					/>
 				</label>
 
-				<label for="browsers">Choose category </label>
+				<label for="category">Choose category </label>
 				<select value={selectedOption} onChange={handlecat}>
 					<option value="" disabled>
 						{selectedOption ? `Selected: ${selectedOption}` : "-- Select a category --"}
