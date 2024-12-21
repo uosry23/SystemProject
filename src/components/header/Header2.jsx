@@ -90,7 +90,7 @@ const Header2 = () => {
     };
 
     return (
-        <Container class="hero"  >
+        <Container class="header2"  >
             <Stack class ="logo" alignItems={"center"} >
                 <MonitorHeartIcon/>
                 <Typography variant="body2">Medicine.me</Typography>
