@@ -1,7 +1,7 @@
 import LoginAndRegister from './Comppnents/LoginAndRegister'
 import React from "react";
 import "./index.css";
-import CardDesign from "./CardDesign";
+// import CardDesign from "./CardDesign";
 import Profile from "./Profile";
 import Cart from './add-cart.js';
 import './index.css'
@@ -14,12 +14,9 @@ import Edite from './Edite'
 const App = () => {
   return (
     <div>
-      <LoginAndRegister/>
-      {/* <ResponsiveAppBar /> */}
-      {/* <Dashbord /> */}
       <Routes>
         
-        <Route path='/' element={<login />} />
+        <Route path='/' element={<LoginAndRegister />} />
         <Route path='/admin' element={<Dashbord />} />
         <Route path="/products" element={<Categories />} />
         <Route path='/admin/add' element={<Add />} />
