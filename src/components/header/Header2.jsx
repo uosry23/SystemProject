@@ -14,6 +14,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import './Header.css'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -89,8 +90,8 @@ const Header2 = () => {
     };
 
     return (
-        <Container sx={{my:3 ,display: "flex", justifyContent:"space-between" }}>
-            <Stack alignItems={"center"}>
+        <Container class="hero"  >
+            <Stack class ="logo" alignItems={"center"} >
                 <MonitorHeartIcon/>
                 <Typography variant="body2">Medicine.me</Typography>
             </Stack>

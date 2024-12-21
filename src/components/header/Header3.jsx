@@ -33,6 +33,7 @@ import {
   import ListItem from "@mui/material/ListItem";
   import ListItemButton from "@mui/material/ListItemButton";
   import Links from "./Links";
+  import './Header.css';
   
   const Header3 = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -64,8 +65,9 @@ import {
     };
   
     return (
-      <Container
+      <Container class="header3"
         sx={{
+          width:"100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -75,7 +77,7 @@ import {
         <Box>
           <Button
             id="basic-button"
-            aria-controls={open ? "basic-menu" : undefined}
+            aria-controls={ open ? "basic-menu" : undefined }
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
