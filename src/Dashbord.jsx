@@ -12,7 +12,7 @@ const Dashbord = () => {
     useEffect(() => {
 
 
-        fetch('https://data-api-yv91.onrender.com/products', {
+        fetch('https://medicine-me-backend-2t5j6blqv-momen-ahmeds-projects-0258fff5.vercel.app', {
             method: 'GET',
         })
             .then(res => res.json())
@@ -62,17 +62,17 @@ const Dashbord = () => {
             denyButtonText: `no`,
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                Swal.fire("Saved!", "", "success");
-
-                axios({
-                    method: "delete",
-                    url: `https://data-api-yv91.onrender.com/products/${item.id}`,
-                }).then((data) => location.reload()
-
-
-                );
-            }
+            // if (result.isConfirmed) {
+            //     Swal.fire("Saved!", "", "success");
+            //
+            //     axios({
+            //         method: "delete",
+            //         url: `https://data-api-yv91.onrender.com/products/${item.id}`,
+            //     }).then((data) => location.reload()
+            //
+            //
+            //     );
+            // }
         });
 
         // data();
