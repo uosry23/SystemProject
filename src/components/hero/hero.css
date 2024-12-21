@@ -1,4 +1,20 @@
-.Hero-img{
-    width: 100%;
-    hight:100vh;
+.hero {
+    background-image: url('./images/5994838369219232839\ \(2\).jpg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
 }

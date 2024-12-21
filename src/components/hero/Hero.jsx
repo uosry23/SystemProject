@@ -1,18 +1,16 @@
 import React from 'react'
-import './hero.css'
-import '../images/background.jpg';
+import './hero.css';
  
 const Hero = () => {
 
     return (
-        <div>
-            <div class="Hero-img">
-                <img src="../images/background.jbg" alt="Back-img" />
-                <div class="details">
-                    <h2>tittle</h2>
-                    <p>This is a beautifully designed card with an image and some details. Customize it as you like!</p>
-                </div>
-            </div></div>
+        <div> <section className="hero">
+            <div>
+                <h1>Welcome to Um El Ayaneen Pharmacy</h1>
+                <p>Your trusted pharmacy, committed to your health and well-being.</p>
+            </div>
+        </section>
+        </div>
     )
 }
   

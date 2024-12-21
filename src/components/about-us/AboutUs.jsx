@@ -2,13 +2,7 @@ import React from 'react'
 import './AboutUs.css'
 const AboutUs = () => {
     return (
-        <div> <section className="hero">
-            <div>
-                <h1>Welcome to Um El Ayaneen Pharmacy</h1>
-                <p>Your trusted pharmacy, committed to your health and well-being.</p>
-            </div>
-        </section>
-
+        <div>
             <section className="about">
                 <h2>About Us</h2>
                 <p>
