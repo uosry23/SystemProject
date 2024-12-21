@@ -12,7 +12,7 @@ const Dashbord = () => {
     useEffect(() => {
 
 
-        fetch('https://medicine-me-backend-2t5j6blqv-momen-ahmeds-projects-0258fff5.vercel.app', {
+        fetch('https://medicine-me-backend-5n8q60f0o-momen-ahmeds-projects-0258fff5.vercel.app/products', {
             method: 'GET',
         })
             .then(res => res.json())
