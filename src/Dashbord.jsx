@@ -12,7 +12,7 @@ const Dashbord = () => {
     useEffect(() => {
 
 
-        fetch('https://data-api-yv91.onrender.com/products', {
+        fetch('https://medicine-me-backend-rntyitptm-philopaterwaheeds-projects.vercel.app/products/', {
             method: 'GET',
         })
             .then(res => res.json())
@@ -61,18 +61,17 @@ const Dashbord = () => {
             confirmButtonText: "yes",
             denyButtonText: `no`,
         }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                Swal.fire("Saved!", "", "success");
-
-                axios({
-                    method: "delete",
-                    url: `https://data-api-yv91.onrender.com/products/${item.id}`,
-                }).then((data) => location.reload()
-
-
-                );
-            }
+             if (result.isConfirmed) {
+                 Swal.fire("Saved!", "", "success");
+            
+                 axios({
+                     method: "delete",
+                     url: `https://medicine-me-backend-rntyitptm-philopaterwaheeds-projects.vercel.app/product/${item._id}`,
+                 }).then((data) => window.location.reload()
+            
+            
+                 );
+             }
         });
 
         // data();
@@ -96,7 +95,7 @@ const Dashbord = () => {
                     </tr>
                 </thead>
                 {product.map((pro) => (
-                    <tbody key={pro.id}>
+                    <tbody key={pro._id}>
                         <tr>
                             <td data-label="Product" className='imagtd'><img src={pro.img} alt="Product" className='image' />
                                 <span style={{ textAlign: "center", marginLeft: "20px", width: "50%" }} >
@@ -106,7 +105,7 @@ const Dashbord = () => {
                             <td data-label="Price" className='pricetd'>{pro.price}$</td>
                             <td data-label="Operation" className='oprations'>
                                 <button className="btn view" onClick={() => view(pro)} >View</button>
-                                <button className="btn edit"  ><Link to={`/admin/edite/${pro.id}`} style={{ textDecoration: "none", color: "white" }}> Edite</Link></button>
+                                <button className="btn edit"  ><Link to={`/admin/edite/${pro._id}`} style={{ textDecoration: "none", color: "white" }}> Edite</Link></button>
                                 <button className="btn del" onClick={() => del(pro)}>Del</button>
                             </td>
                         </tr>

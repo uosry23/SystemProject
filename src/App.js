@@ -1,6 +1,9 @@
-import React from 'react'
 import LoginAndRegister from './Comppnents/LoginAndRegister'
-
+import React from "react";
+import "./index.css";
+import CardDesign from "./CardDesign";
+import Profile from "./Profile";
+import Cart from './add-cart.js';
 import './index.css'
 import Categories from './Categories'
 import ResponsiveAppBar from './Header'
@@ -16,15 +19,14 @@ const App = () => {
       {/* <Dashbord /> */}
       <Routes>
         
+        <Route path='/' element={<login />} />
         <Route path='/admin' element={<Dashbord />} />
         <Route path="/products" element={<Categories />} />
         <Route path='/admin/add' element={<Add />} />
         <Route path="admin/edite/:id" element={<Edite />} />
       </Routes>
-
-
-    </div>
-  )
-}
+		</div>
+	);
+};
 
 export default App

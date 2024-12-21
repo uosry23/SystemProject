@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
-const Add = () => {
+const Edite = () => {
 	const [selectedOption, setSelectedOption] = useState(""); // State to hold the selected value
 	const options = ['Tablet', 'Capsule', 'Cream', 'Ointment', 'Skin Care', 'Supplies', 'Misc.']; // Dropdown options
 
@@ -11,44 +11,54 @@ const Add = () => {
 		setSelectedOption(selectedValue); // Update the state with the selected value
 	};
 	const Navigate = useNavigate("")
-	const [formData, setFormData] = useState({
-		name: "",
-		category: "",
-		price: 0,
-		description: "",
-		img: '',
-		rating: 0,
-		available: true,
-		reviewsCount : 0 , 
-	});
+	const { id } = useParams("")
+	const [name, setname] = useState("");
+	const [price, setprice] = useState("");
+	const [img, setimg] = useState("");
+	const [description, setdescription] = useState("");
+	const [category, setcategory] = useState("")
+	const [rating, setRating] = useState(0)
+	const [available, setAvailable] = useState(true)
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
-		setFormData({ ...formData, [name]: value });
+		setname(value)
 	};
+	useEffect(() => {
 
-	// const handleimgChange = (e) => {
-	//     setFormData({ ...formData, img: e.target.files[0] });
+		axios({
+			method: "get",
+			url: `https://medicine-me-backend-rntyitptm-philopaterwaheeds-projects.vercel.app/products/${id}`,
+		}).then((data) => {
+
+			setname(data.data.name)
+			setSelectedOption(data.data.name)
+			setprice(data.data.price)
+			setimg(data.data.img)
+			setAvailable(data.data.available)
+		});
+
+	}, [])
+
+	// const handleImageChange = (e) => {
+	//     setFormData({ ...formData, image: e.target.files[0] });
 	// };
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		// console.log("Form submitted:", formData);
 		axios({
-			method: "post",
-			url: "https://medicine-me-backend-rntyitptm-philopaterwaheeds-projects.vercel.app/products/add",
+			method: "put",
+			url: `https://medicine-me-backend-rntyitptm-philopaterwaheeds-projects.vercel.app/products/edit/${id}`,
 
 			data: {
-				name: formData.name,
-				price: formData.price,
-				img: formData.img,
-				description: formData.description,
-				category: selectedOption,
-				available: formData.available,
-				rating: formData.rating,
-				reviewsCount : formData.reviewsCount,
-				
-
+				name: name,
+				price: price,
+				img: img,
+				description: description,
+				category: category,
+				rating: rating,
+				available: available
 			},
 		});
 		setTimeout(() => {
@@ -65,8 +75,8 @@ const Add = () => {
 					<input
 						type="text"
 						name="name"
-						value={formData.name}
-						onChange={handleChange}
+						value={name}
+						onChange={(e) => { setname(e.target.value) }}
 						style={styles.input}
 						required
 					/>
@@ -83,37 +93,49 @@ const Add = () => {
 						</option>
 					))}
 				</select>
+
 				<label style={styles.label}>
 					price:
 					<input
 						type="number"
 						name="price"
-						value={formData.price}
-						onChange={handleChange}
+						value={price}
+						onChange={(e) => { price(e.target.value) }}
 						style={styles.input}
 						required
 					/>
 				</label>
 
 				<label style={styles.label}>
-					description:
+					Description:
 					<textarea
 						name="description"
-						value={formData.description}
-						onChange={handleChange}
+						value={description}
+						onChange={(e) => { setdescription(e.target.value) }}
 						style={styles.textarea}
 						required
 					/>
 				</label>
 				<label style={styles.label}>
-					Upload img:
+					available:
 					<input
-						type="url"
-						name="img"
-						value={formData.img}
+						type="text"
+						name="available"
+						value={available}
 						onChange={handleChange}
 						style={styles.input}
-						placeholder="https://example.com/img.jpg"
+						required
+					/>
+				</label>
+				<label style={styles.label}>
+					Upload Image:
+					<input
+						type="url"
+						name="image"
+						value={img}
+						onChange={(e) => { setimg(e.target.value) }}
+						style={styles.input}
+						placeholder="https://example.com/image.jpg"
 						required
 					/>
 				</label>
@@ -177,4 +199,4 @@ const styles = {
 		cursor: "pointer",
 	},
 }
-export default Add
+export default Edite
