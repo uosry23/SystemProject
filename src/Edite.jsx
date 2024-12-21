@@ -42,7 +42,7 @@ const Edite = () => {
         // console.log("Form submitted:", formData);
         axios({
             method: "put",
-            url: `https://data-api-yv91.onrender.com/products/${id}`,
+            url: `https://medicine-me-backend-5n8q60f0o-momen-ahmeds-projects-0258fff5.vercel.app/products/${id}`,
 
             data: {
                 name: name,
