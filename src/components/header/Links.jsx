@@ -10,7 +10,6 @@ import ListItemText from "@mui/material/ListItemText";
 const Links = ({ title }) => {
   return (
     <Box
-      // className="border"
       sx={{
         ":hover .show-when-hover": { display: "block" },
         ":hover": { cursor: "pointer" },
