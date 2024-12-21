@@ -5,6 +5,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom';
 const Edite = () => {
 	const [selectedOption, setSelectedOption] = useState(""); // State to hold the selected value
 	const options = ['Tablet', 'Capsule', 'Cream', 'Ointment', 'Skin Care', 'Supplies', 'Misc.']; // Dropdown options
+	const boptions = ["true","false"]
 
 	const handlecat = (event) => {
 		const selectedValue = event.target.value; // Get the selected value from the event
@@ -28,15 +29,15 @@ const Edite = () => {
 
 		axios({
 			method: "get",
-			url: `https://medicine-me-backend-5n8q60f0o-momen-ahmeds-projects-0258fff5.vercel.app/products/`,
+			url: `https://medicine-me-backend-rntyitptm-philopaterwaheeds-projects.vercel.app/products/${id}`,
 		}).then((data) => {
 
-			const product = data.data.filter((item) => item._id === id)
-			setname(product[0].name)
-			setSelectedOption(product[0].name)
-			setprice(product[0].price)
-			setimg(product[0].img)
-			setAvailable(product[0].available)
+			setname(data.data.name)
+			setSelectedOption(data.data.name)
+			setprice(data.data.price)
+			setdescription(data.data.description)
+			setimg(data.data.img)
+			setAvailable(data.data.available)
 		});
 
 	}, [])
@@ -50,7 +51,7 @@ const Edite = () => {
 		// console.log("Form submitted:", formData);
 		axios({
 			method: "put",
-			url: `https://medicine-me-backend-5n8q60f0o-momen-ahmeds-projects-0258fff5.vercel.app/products/edit/${id}`,
+			url: `https://medicine-me-backend-rntyitptm-philopaterwaheeds-projects.vercel.app/products/edit/${id}`,
 
 			data: {
 				name: name,
@@ -101,7 +102,7 @@ const Edite = () => {
 						type="number"
 						name="price"
 						value={price}
-						onChange={(e) => { price(e.target.value) }}
+						onChange={(e) => { setprice(e.target.value) }}
 						style={styles.input}
 						required
 					/>
@@ -117,17 +118,18 @@ const Edite = () => {
 						required
 					/>
 				</label>
-				<label style={styles.label}>
-					available:
-					<input
-						type="text"
-						name="available"
-						value={available}
-						onChange={handleChange}
-						style={styles.input}
-						required
-					/>
-				</label>
+	    
+				<label for="available">available</label>
+				<select value={available} onChange={(e) => { setAvailable(e.target.value) }}>
+					<option value="" disabled>
+						{available ? `Selected: ${available}` : "bool"}
+					</option>
+					{boptions.map((option, index) => (
+						<option key={index} value={option}>
+							{option}
+						</option>
+					))}
+				</select>
 				<label style={styles.label}>
 					Upload Image:
 					<input

@@ -5,7 +5,7 @@ import Loding from './Loding';
 const Categories = () => {
 	const [data, setdata] = useState([]);
 	useEffect(() => {
-		fetch('https://medicine-me-backend-5n8q60f0o-momen-ahmeds-projects-0258fff5.vercel.app/products', {
+		fetch('https://medicine-me-backend-rntyitptm-philopaterwaheeds-projects.vercel.app/products/', {
 			method: 'GET',
 		})
 			.then(res => res.json())

@@ -12,7 +12,7 @@ const Dashbord = () => {
     useEffect(() => {
 
 
-        fetch('https://medicine-me-backend-5n8q60f0o-momen-ahmeds-projects-0258fff5.vercel.app/products', {
+        fetch('https://medicine-me-backend-rntyitptm-philopaterwaheeds-projects.vercel.app/products/', {
             method: 'GET',
         })
             .then(res => res.json())
@@ -66,7 +66,7 @@ const Dashbord = () => {
             
                  axios({
                      method: "delete",
-                     url: `https://medicine-me-backend-5n8q60f0o-momen-ahmeds-projects-0258fff5.vercel.app/products/${item._id}`,
+                     url: `https://medicine-me-backend-rntyitptm-philopaterwaheeds-projects.vercel.app/product/${item._id}`,
                  }).then((data) => window.location.reload()
             
             
