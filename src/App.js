@@ -1,3 +1,4 @@
+import LoginAndRegister from './Comppnents/LoginAndRegister'
 import React from "react";
 import "./index.css";
 import CardDesign from "./CardDesign";
@@ -11,20 +12,19 @@ import Dashbord from './Dashbord'
 import Add from './Add';
 import Edite from './Edite'
 const App = () => {
-	return (
-		<div>
-			{/* <ResponsiveAppBar /> */}
-			{/* <Dashbord /> */}
-			<Routes>
-				<Profile />
-				<Cart />
-				<Route path='/admin' element={<Dashbord />} />
-				<Route path="/products" element={<Categories />} />
-				<Route path='/admin/add' element={<Add />} />
-				<Route path="admin/edite/:id" element={<Edite />} />
-			</Routes>
-
-
+  return (
+    <div>
+      <LoginAndRegister/>
+      {/* <ResponsiveAppBar /> */}
+      {/* <Dashbord /> */}
+      <Routes>
+        
+        <Route path='/' element={<login />} />
+        <Route path='/admin' element={<Dashbord />} />
+        <Route path="/products" element={<Categories />} />
+        <Route path='/admin/add' element={<Add />} />
+        <Route path="admin/edite/:id" element={<Edite />} />
+      </Routes>
 		</div>
 	);
 };
